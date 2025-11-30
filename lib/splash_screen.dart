@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:whatsapp_ui/all_Screen/home_screen.dart';
+import 'package:whatsapp_ui/all_Screen/chats_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
    Timer(Duration(seconds: 3), (){
-     Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatsScreen()));
    });
   }
   @override
