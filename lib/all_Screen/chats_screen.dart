@@ -16,6 +16,25 @@ class _ChatsScreenState extends State<ChatsScreen> {
     {
       "name": 'Razaul Kabir',
       "description": "I am flutter new app developer. Now, i am finding the job . I am little bit nervous to join the job.",
+      'image':'assets/images/1.jpg',
+      "is_it_me": true,
+      'message':"hello",
+      "age": 24,
+      "Address": "Dhaka",
+    },
+    {
+      "name": 'Razaul Kabir',
+      "description": "I am flutter new app developer. Now, i am finding the job . I am little bit nervous to join the job.",
+      'image':'assets/images/3.jpg',
+      "is_it_me": false,
+      'message':"hi",
+      "age": 24,
+      "Address": "Dhaka",
+    },
+    {
+      "name": 'Razaul Kabir',
+      "description": "I am flutter new app developer. Now, i am finding the job . I am little bit nervous to join the job.",
+      'image':'assets/images/4.jpg',
       "is_it_me": true,
       'message':"hello,how are you?",
       "age": 24,
@@ -24,6 +43,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
     {
       "name": 'Hanson Kabir',
       "description": "I am not flutter app developer",
+      'image':'assets/images/3.jpg',
       "is_it_me": false,
       'message':"I am fine and you?",
       "age": 23,
@@ -32,8 +52,18 @@ class _ChatsScreenState extends State<ChatsScreen> {
     {
       "name": 'Hasan ahmed',
       "description": "immigrant",
+      'image':'assets/images/5.jpg',
       "is_it_me": true,
       'message':"i am also fine. How are doing this day!",
+      "age": 25,
+      "Address": "suiden",
+    },
+    {
+      "name": 'kabir',
+      "description": "immigrant",
+      'image':'assets/images/7.jpg',
+      "is_it_me": false,
+      'message':"Nothing much,but i have lot of pressure because of i am unemployment person. I have no job now, i am job less person now .So can you tell me what can i do now!",
       "age": 25,
       "Address": "suiden",
     },
@@ -110,13 +140,14 @@ class _ChatsScreenState extends State<ChatsScreen> {
                             IndividualDetailsScreen(
                                 name: '${data['name']}',
                               listMapFetchData: listMapData,
+                              images: '${data['image']}',
 
                             ),
                       ),
                     );
                   },
                   leading: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/logo2.png"),
+                        backgroundImage: AssetImage('${data["image"]}'),
                         radius: 45,
                       ),
                       title: Text(
@@ -133,11 +164,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
                         children: [
                           Text("12:05", style: TextStyle(color: Colors.green)),
                           Spacer(),
-                          CircleAvatar(
+                          data["is_it_me"]? SizedBox():CircleAvatar(
                             backgroundColor: Colors.green,
                             foregroundColor: Colors.white,
                             radius: 13,
-                            child: Text("2"),
+                            child:data["is_it_me"]? SizedBox():Text("2"),
                           ),
                         ],
                       ),
