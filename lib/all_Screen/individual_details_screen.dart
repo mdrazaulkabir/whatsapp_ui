@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 
 class IndividualDetailsScreen extends StatefulWidget {
   final String name;
-
   // final String name ;
-  final String message;
-  final bool isMe;
-  final int listLength;
+  final List<Map> listMapFetchData;
 
   const IndividualDetailsScreen({
     super.key,
     required this.name,
-    required this.message,
-    required this.isMe,
-    required this.listLength
+    required this.listMapFetchData
   });
 
   @override
@@ -56,19 +51,20 @@ class _IndividualDetailsScreenState extends State<IndividualDetailsScreen> {
         ],
       ),
       body: ListView.builder(
-          itemCount: widget.listLength,
+          itemCount: widget.listMapFetchData.length,
           itemBuilder: (context,index){
+            final data= widget.listMapFetchData[index];
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            mainAxisAlignment: widget.isMe? MainAxisAlignment.start:MainAxisAlignment.end,
+            mainAxisAlignment: data['is_it_me']? MainAxisAlignment.start:MainAxisAlignment.end,
             children: [
               Container(
                 height: MediaQuery.of(context).size.height*.07,
                 width: MediaQuery.of(context).size.width*.5,
                 decoration: BoxDecoration(
-                  color:widget.isMe? Colors.greenAccent:Colors.lightBlueAccent,
-                  borderRadius: widget.isMe?
+                  color:data['is_it_me']? Colors.greenAccent:Colors.lightBlueAccent,
+                  borderRadius:data['is_it_me']?
                   BorderRadius.only(
                     topLeft: Radius.circular(15),
                     topRight: Radius.circular(15),
@@ -79,7 +75,9 @@ class _IndividualDetailsScreenState extends State<IndividualDetailsScreen> {
                       bottomLeft: Radius.circular(15)),
 
                 ),
-                child: Center(child: Text("${widget.message}")),
+                // child: Center(child: Text("${widget.message}")),
+                child: Center(child: Text("${data['message']}")),
+
               ),
             ],
           ),

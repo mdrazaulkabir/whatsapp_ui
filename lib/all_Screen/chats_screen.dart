@@ -109,9 +109,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                         builder: (context) =>
                             IndividualDetailsScreen(
                                 name: '${data['name']}',
-                              message:'${data['message']}',
-                              isMe: data['is_it_me'],
-                              listLength: listMapData.length,
+                              listMapFetchData: listMapData,
 
                             ),
                       ),
